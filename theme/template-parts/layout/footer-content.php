@@ -11,21 +11,6 @@
 ?>
 
 <footer id="colophon" class="max-w-wide">
-	<div class="">
-		<?php if (has_nav_menu('menu-footer')) : ?>
-			<nav aria-label="<?php esc_attr_e('Footer Menu', 'contentment'); ?>">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-2',
-						'menu_class'     => 'footer-menu',
-						'depth'          => 1,
-					)
-				);
-				?>
-			</nav>
-		<?php endif; ?>
-	</div>
 	<div class="flex justify-between border-t">
 		<div class="flex flex-grow justify-around border-r p-6 md:justify-start md:gap-6">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook">
