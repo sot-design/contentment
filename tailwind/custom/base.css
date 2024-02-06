@@ -12,5 +12,24 @@
  * editor.
 */
 body {
-	@apply bg-background text-foreground font-sans;
+	@apply bg-background text-foreground font-cormorantgaramond;
+}
+
+/* Apply styles to all headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-bodonimoda;
+}
+
+/* Apply styles to all other text */
+p,
+span,
+div,
+li,
+a {
+	@apply font-cormorantgaramond;
 }

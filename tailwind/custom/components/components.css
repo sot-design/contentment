@@ -19,7 +19,7 @@
  */
 .page-title,
 .entry-title {
-	@apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+	@apply max-w-content mx-auto text-center mb-6 text-3xl font-extrabold text-foreground;
 }
 
 /**
@@ -32,6 +32,22 @@
  *
  * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
  */
+.max-w-content {
+	@apply mx-auto px-3 lg:px-0;
+}
+
+.max-w-wide {
+	@apply mx-auto;
+}
+
+.max-w-wide-p {
+	@apply mx-auto px-6 lg:px-0;
+}
+
+.entry-header {
+	@apply text-center;
+}
+
 .page-content > *,
 .entry-content > * {
 	/* Content width from the `theme.json` file */
@@ -53,4 +69,16 @@
 
 .entry-content > .alignright {
 	@apply float-right ml-8;
+}
+
+.entry-meta {
+	@apply max-w-content;
+}
+
+.entry-footer {
+	@apply max-w-content;
+}
+
+#content {
+	@apply my-10;
 }

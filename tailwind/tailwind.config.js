@@ -12,7 +12,13 @@ module.exports = {
 	],
 	theme: {
 		// Extend the default Tailwind theme.
-		extend: {},
+		extend: {
+			fontFamily: {
+				bodonimoda: ['Bodoni Moda', 'serif'],
+				cormorantgaramond: ['Cormorant Garamond', 'serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
+			},
+		},
 	},
 	corePlugins: {
 		// Disable Preflight base styles in builds targeting the editor.
@@ -26,7 +32,7 @@ module.exports = {
 		require('@_tw/themejson'),
 
 		// Uncomment below to add additional first-party Tailwind plugins.
-		// require('@tailwindcss/forms'),
+		require('@tailwindcss/forms'),
 		// require('@tailwindcss/aspect-ratio'),
 		// require('@tailwindcss/container-queries'),
 	],
