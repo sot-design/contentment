@@ -16,6 +16,9 @@
 @import "tailwindcss/base";
 @import "./custom/base.css";
 
+@import "../node_modules/swiper/swiper.css";
+@import "../node_modules/swiper/modules/navigation.css";
+
 /**
  * This injects Tailwind's component classes and any component classes
  * registered by plugins, then adds custom component classes.
