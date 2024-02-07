@@ -10,7 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class("max-w-content"); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("max-w-content mb-6"); ?>>
 
 	<div class="flex border">
 		<div class="w-1/3">
