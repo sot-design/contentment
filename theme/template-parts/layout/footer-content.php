@@ -43,13 +43,14 @@
 				<?php
 				wp_nav_menu(
 					array(
-						'theme_location' => 'menu-main-left',
-						'menu_id'        => 'menu-main-left',
+						'theme_location' => 'menu-footer',
+						'menu_id'        => 'menu-footer',
 						'container'      => false,
 						'items_wrap'     => '<ul id="%1$s" class="%2$s" aria-label="submenu">%3$s</ul>',
 						'menu_class'     => '',
 						'link_before'    => '<span class="uppercase font-montserrat text-xs">', // Add opening <span> tag with Tailwind CSS classes
 						'link_after'     => '</span>', // Add closing </span> tag
+						'depth'          => 1,
 					)
 				);
 				?>
