@@ -111,11 +111,11 @@
 		?>
 
 					<li class="flex justify-between border-b px-6 py-5 font-montserrat text-sm uppercase">
-						<a href="<?php echo esc_url($menu_item->url); ?>"><?php echo esc_html($menu_item->title) ?></a>
+						<a href="<?php echo esc_url($menu_item->url); ?>" class="w-3/4"><?php echo esc_html($menu_item->title) ?></a>
 						<?php
 						if ($has_children) { ?>
-							<div @click="mobileSubMenuOpen = !mobileSubMenuOpen" class="h-full">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="square" class="lucide lucide-chevron-down">
+							<div @click="mobileSubMenuOpen = !mobileSubMenuOpen" class="h-full w-1/4">
+								<svg :class="{ 'transform rotate-180': mobileSubMenuOpen }" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="square" class="ml-auto transition-transform ease-in-out duration-300">
 									<path d="m6 9 6 6 6-6" />
 								</svg>
 							</div>
@@ -129,10 +129,10 @@
 					if ($has_children) {
 						$firstitem = true;
 						echo '<div x-cloak x-show="mobileSubMenuOpen" x-transition class="px-6 border-b child-menu child-menu-' . $menu_item->ID . '">';
-						echo '<ul>';
+						echo '<ul class="w-full">';
 						foreach ($menu_items as $child_menu_item) {
 							if ($child_menu_item->menu_item_parent == $menu_item->ID) {
-								echo '<li class="py-5 p-4 ' . ($firstitem ? '' : 'border-t ') . 'uppercase font-montserrat text-sm"><a href="' . $child_menu_item->url . '">' . $child_menu_item->title . '</a></li>';
+								echo '<a href="' . $child_menu_item->url . '"><li class="py-5 p-4 ' . ($firstitem ? '' : 'border-t ') . 'uppercase font-montserrat text-sm">' . $child_menu_item->title . '</li></a>';
 								$firstitem = false;
 							}
 						}
