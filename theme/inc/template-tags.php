@@ -152,7 +152,7 @@ if (!function_exists('contentment_entry_footer')) :
 				<!-- Posted by -->
 				<?php contentment_posted_by(); ?>
 
-				<div class="flex flex-wrap justify-center font-montserrat uppercase text-sm gap-3">
+				<div class="flex flex-wrap justify-center md:justify-start font-montserrat uppercase text-sm gap-3">
 					<!-- Posted on. -->
 					<?php
 					contentment_posted_on();
