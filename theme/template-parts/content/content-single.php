@@ -21,7 +21,7 @@
 			if (!empty($categories)) {
 				$category_links = array();
 				foreach ($categories as $category) {
-					$category_links[] = '<a class="uppercase font-montserrat" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+					$category_links[] = '<a class="uppercase font-montserrat text-sm" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
 				}
 
 				echo implode(' / ', $category_links);
@@ -29,7 +29,15 @@
 			?>
 		</div>
 
-		<?php the_title('<h1 class="entry-title uppercase mb-8">', '</h1>'); ?>
+		<?php
+		the_title('<h1 class="entry-title uppercase mb-6">', '</h1>');
+
+		$sub_header = get_field('sub_header');
+		if ($sub_header) {
+			echo '<h2 class="font-cormorantgaramond mb-6 text-lg">' . $sub_header . '</h2>';
+		}
+		?>
+
 	</header><!-- .entry-header -->
 
 	<div class="mb-8 max-w-content">
@@ -71,7 +79,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer my-24">
 		<?php contentment_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 

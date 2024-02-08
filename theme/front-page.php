@@ -18,8 +18,10 @@ get_header();
         transition: transform 0.3s;
     }
 
-    .post-slide.swiper-slide-active {
-        transform: scale(1.25);
+    @media screen and (min-width: 769px) {
+        .post-slide.swiper-slide-active {
+            transform: scale(1.25);
+        }
     }
 </style>
 
@@ -31,7 +33,7 @@ get_header();
             <header class="page-header">
                 <h1 class="sr-only">Contentment Magazine</h1>
                 <div class="relative">
-                    <div class="swiper-container mx-auto max-w-wide select-none overflow-hidden border-b pb-40 pt-16">
+                    <div class="swiper-container max-w-wide-p mx-auto select-none overflow-hidden border-b pb-40 md:pt-16">
                         <div class="swiper-wrapper">
                             <!-- Slide 1 -->
                             <div class="swiper-slide post-slide flex size-32 items-center justify-center bg-slate-100 md:size-48">
@@ -53,45 +55,45 @@ get_header();
                         </div>
                     </div>
                     <div class="button-prev absolute bottom-0 left-1/3 z-50 flex max-w-md -translate-x-1/2 transform justify-center text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left">
                             <path d="M6 8L2 12L6 16" />
                             <path d="M2 12H22" />
                         </svg>
                     </div>
                     <div class="button-next absolute bottom-0 left-2/3 z-50 flex max-w-md -translate-x-1/2 transform justify-center text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right">
                             <path d="M18 8L22 12L18 16" />
                             <path d="M2 12H22" />
                         </svg>
                     </div>
-                    <div class="absolute bottom-0 left-1/2 z-40 max-w-sm -translate-x-1/2 transform text-center">
+                    <div class="absolute bottom-0 left-1/2 z-40 max-w-sm -translate-x-1/2 transform overflow-hidden text-center">
                         <div class="title-slider m-6 mx-auto bg-white">
                             <div class="swiper-wrapper items-stretch">
                                 <!-- Slide 1 -->
-                                <div class="swiper-slide h-full p-6">
+                                <div class="swiper-slide h-full p-6 ">
                                     <div class="text-center">
-                                        <h1 class="mb-3 text-3xl font-semibold">DE VOORDELEN VAN VITAMINE D - ALLES WAT JE MOET WETEN</h1>
+                                        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl">DE VOORDELEN VAN VITAMINE D - ALLES WAT JE MOET WETEN</h1>
                                         <p class="font-montserrat uppercase">take your vitamins!</p>
                                     </div>
                                 </div>
                                 <!-- Slide 2 -->
                                 <div class="swiper-slide h-full p-6">
                                     <div class="text-center">
-                                        <h1 class="mb-3 text-3xl font-semibold">WAT IS SEA MOSS? DIT MOET JE WETEN OVER HET WONDERMIDDEL</h1>
+                                        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl">WAT IS SEA MOSS? DIT MOET JE WETEN OVER HET WONDERMIDDEL</h1>
                                         <p class="font-montserrat uppercase">Alle ins en outs over zeemos.</p>
                                     </div>
                                 </div>
                                 <!-- Slide 3 -->
                                 <div class="swiper-slide h-full p-6">
                                     <div class="text-center">
-                                        <h1 class="mb-3 text-3xl font-semibold">DE VOORDELEN VAN VITAMINE D - ALLES WAT JE MOET WETEN</h1>
+                                        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl">DE VOORDELEN VAN VITAMINE D - ALLES WAT JE MOET WETEN</h1>
                                         <p class="font-montserrat uppercase">take your vitamins!</p>
                                     </div>
                                 </div>
                                 <!-- Slide 4 -->
                                 <div class="swiper-slide h-full  p-6">
                                     <div class="text-center">
-                                        <h1 class="mb-3 text-3xl font-semibold">WAT IS SEA MOSS? DIT MOET JE WETEN OVER HET WONDERMIDDEL</h1>
+                                        <h1 class="mb-3 text-2xl font-semibold sm:text-3xl">WAT IS SEA MOSS? DIT MOET JE WETEN OVER HET WONDERMIDDEL</h1>
                                         <p class="font-montserrat uppercase">Alle ins en outs over zeemos.</p>
                                     </div>
                                 </div>

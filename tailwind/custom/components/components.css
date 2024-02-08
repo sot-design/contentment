@@ -41,7 +41,7 @@
 }
 
 .max-w-wide-p {
-	@apply mx-auto px-6 lg:px-0;
+	@apply max-w-wide mx-auto px-6 lg:px-0;
 }
 
 .entry-header {
@@ -80,7 +80,7 @@
 }
 
 #content {
-	@apply my-10;
+	@apply py-8;
 }
 
 [x-cloak] {

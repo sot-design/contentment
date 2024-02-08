@@ -13,7 +13,7 @@
 <header x-data="{ mobileMenuOpen: false }" id="masthead" class="relative">
 	<div class="flex max-w-wide justify-between border-b p-5 xl:px-0">
 		<div class="flex w-2/5 items-center gap-3">
-			<div @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden">
+			<div @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden">
 				<svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu stroke-foreground">
 					<line x1="4" x2="20" y1="12" y2="12" />
 					<line x1="4" x2="20" y1="6" y2="6" />
@@ -24,7 +24,7 @@
 					<path d="m6 6 12 12" />
 				</svg>
 			</div>
-			<nav class="hidden md:block" id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'contentment'); ?>">
+			<nav class="hidden lg:block" id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'contentment'); ?>">
 				<?php
 				wp_nav_menu(
 					array(
@@ -116,7 +116,7 @@
 						<?php
 						if ($has_children) { ?>
 							<div @click="mobileSubMenuOpen = !mobileSubMenuOpen" class="h-full w-1/4">
-								<svg :class="{ 'transform rotate-180': mobileSubMenuOpen }" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="square" class="ml-auto transition-transform ease-in-out duration-300">
+								<svg :class="{ 'transform rotate-180': mobileSubMenuOpen }" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="square" class="ml-auto transition-transform duration-300 ease-in-out">
 									<path d="m6 9 6 6 6-6" />
 								</svg>
 							</div>

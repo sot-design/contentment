@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class("max-w-content mb-6"); ?>>
 
 	<div class="flex border">
-		<div class="w-1/3">
+		<div class="aspect-h-3 aspect-w-7 w-1/3">
 			<?php
 			$post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); // Get the post thumbnail ID for the current post
 
@@ -34,12 +34,16 @@
 					if (!empty($categories)) {
 						$category_links = array();
 						foreach ($categories as $category) {
-							$category_links[] = '<a class="uppercase font-montserrat text-xs md:text-sm" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+							// Check if the category has a parent
+							if ($category->parent == 0) {
+								$category_links[] = '<a class="uppercase font-montserrat text-xs md:text-sm" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+							}
 						}
 
 						echo implode(', ', $category_links);
 					}
 					?>
+
 				</div>
 				<div class="font-montserrat text-xs uppercase md:text-sm">
 					<?php
@@ -53,10 +57,14 @@
 				the_title(sprintf('<h2 class="text-xl md:text-3xl font-bodonimoda font-semibold uppercase mb-0"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
 				?>
 			</header><!-- .entry-header -->
-			<div <?php contentment_content_class('entry-content hidden sm:block'); ?>>
+			<?php
+			?>
+			<div <?php contentment_content_class('entry-content block text-xl'); ?>>
 				<?php
-				$excerpt = get_the_excerpt();
-				echo wp_trim_words($excerpt, 25); // Change 20 to your desired word limit
+				$sub_header = get_field('sub_header');
+				if ($sub_header) {
+					echo $sub_header;
+				}
 				?>
 			</div><!-- .entry-content -->
 			<div class="hidden justify-end gap-3 md:flex">
