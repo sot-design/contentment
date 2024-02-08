@@ -82,3 +82,7 @@
 #content {
 	@apply my-10;
 }
+
+[x-cloak] {
+	display: none;
+}

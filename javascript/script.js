@@ -17,3 +17,9 @@ Swiper.use(Navigation);
 Swiper.use(Autoplay);
 
 window.Swiper = Swiper;
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();

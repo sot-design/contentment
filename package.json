@@ -57,6 +57,7 @@
 	},
 	"prettier": "@wordpress/prettier-config",
 	"dependencies": {
+		"alpinejs": "^3.13.5",
 		"browser-sync": "^3.0.2",
 		"swiper": "^11.0.6"
 	}

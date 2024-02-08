@@ -43,7 +43,7 @@
 				</div>
 				<div class="font-montserrat text-xs uppercase md:text-sm">
 					<?php
-					$date = get_the_date('m/d/y');
+					$date = get_the_date('d/m/y');
 					echo $date;
 					?>
 				</div>

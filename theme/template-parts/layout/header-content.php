@@ -10,15 +10,18 @@
 
 ?>
 
-<header id="masthead">
-
+<header x-data="{ mobileMenuOpen: false }" id="masthead" class="relative">
 	<div class="flex max-w-wide justify-between border-b p-5 xl:px-0">
 		<div class="flex w-2/5 items-center gap-3">
-			<div class="md:hidden">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu stroke-foreground">
+			<div @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden">
+				<svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu stroke-foreground">
 					<line x1="4" x2="20" y1="12" y2="12" />
 					<line x1="4" x2="20" y1="6" y2="6" />
 					<line x1="4" x2="20" y1="18" y2="18" />
+				</svg>
+				<svg x-show="mobileMenuOpen" x-cloak xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+					<path d="M18 6 6 18" />
+					<path d="m6 6 12 12" />
 				</svg>
 			</div>
 			<nav class="hidden md:block" id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'contentment'); ?>">
@@ -32,9 +35,11 @@
 						'menu_class'     => 'flex gap-5',
 						'link_before'    => '<span class="uppercase font-montserrat text-xs">', // Add opening <span> tag with Tailwind CSS classes
 						'link_after'     => '</span>', // Add closing </span> tag
+						'depth'          => 1, // Display only top-level items
 					)
 				);
 				?>
+
 			</nav><!-- #site-navigation -->
 		</div>
 		<div class="flex w-1/5 justify-center">
@@ -66,6 +71,85 @@
 				<path d="m21 21-4.3-4.3" />
 			</svg>
 		</div>
+	</div>
+	<div x-transition x-cloak x-show="mobileMenuOpen" class="absolute top-full z-50 w-screen bg-white">
+		<?php
+		// Get all registered menu locations
+		$locations = get_nav_menu_locations();
+
+		// Check if the left menu location exists and retrieve its menu items
+		if (isset($locations['menu-main-left'])) {
+			$left_menu_items = wp_get_nav_menu_items($locations['menu-main-left']);
+		} else {
+			$left_menu_items = array();
+		}
+
+		// Check if the right menu location exists and retrieve its menu items
+		if (isset($locations['menu-main-right'])) {
+			$right_menu_items = wp_get_nav_menu_items($locations['menu-main-right']);
+		} else {
+			$right_menu_items = array();
+		}
+
+		// Merge menu items into a single array
+		$menu_items = array_merge($left_menu_items, $right_menu_items);
+
+		// Loop over the merged array to display menu items
+		if (!empty($menu_items)) {
+			foreach ($menu_items as $menu_item) {
+				echo '<ul x-data="{ mobileSubMenuOpen: false }" class="parent-menu font-montserrat">';
+				// Check if the menu item is a top-level item (no parent)
+				if ($menu_item->menu_item_parent == 0) {
+					// Check if the menu item has children
+					$has_children = false;
+					foreach ($menu_items as $child_menu_item) {
+						if ($child_menu_item->menu_item_parent == $menu_item->ID) {
+							$has_children = true;
+							break;
+						}
+					}
+		?>
+
+					<li class="flex justify-between border-b px-6 py-5 font-montserrat text-sm uppercase">
+						<a href="<?php echo esc_url($menu_item->url); ?>"><?php echo esc_html($menu_item->title) ?></a>
+						<?php
+						if ($has_children) { ?>
+							<div @click="mobileSubMenuOpen = !mobileSubMenuOpen" class="h-full">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square" stroke-linejoin="square" class="lucide lucide-chevron-down">
+									<path d="m6 9 6 6 6-6" />
+								</svg>
+							</div>
+						<?php
+						}
+						?>
+					</li>
+		<?php
+
+					// If menu item has children, display them
+					if ($has_children) {
+						$firstitem = true;
+						echo '<div x-cloak x-show="mobileSubMenuOpen" x-transition class="px-6 border-b child-menu child-menu-' . $menu_item->ID . '">';
+						echo '<ul>';
+						foreach ($menu_items as $child_menu_item) {
+							if ($child_menu_item->menu_item_parent == $menu_item->ID) {
+								echo '<li class="py-5 p-4 ' . ($firstitem ? '' : 'border-t ') . 'uppercase font-montserrat text-sm"><a href="' . $child_menu_item->url . '">' . $child_menu_item->title . '</a></li>';
+								$firstitem = false;
+							}
+						}
+						echo '</ul>';
+						echo '</div>';
+					}
+
+					echo '</li>';
+				}
+				echo '</ul>';
+			}
+		} else {
+			echo 'No menu items found.';
+		}
+		?>
+
+
 	</div>
 
 </header><!-- #masthead -->
