@@ -62,6 +62,7 @@
 						'menu_class'     => 'flex gap-5',
 						'link_before'    => '<span class="uppercase font-montserrat text-xs">', // Add opening <span> tag with Tailwind CSS classes
 						'link_after'     => '</span>', // Add closing </span> tag
+						'depth'          => 1,
 					)
 				);
 				?>
