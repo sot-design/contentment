@@ -57,7 +57,7 @@ $posts_array = array();
                             $post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); // Get the post thumbnail ID for the current post
 
                             if ($post_thumbnail_id) {
-                                $thumbnail = wp_get_attachment_image_src($post_thumbnail_id, 'medium_large');
+                                $thumbnail = wp_get_attachment_image_src($post_thumbnail_id, 'post_image');
                                 $thumbnail_url = $thumbnail[0];
                             }
 
