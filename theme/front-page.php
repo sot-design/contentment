@@ -145,19 +145,216 @@ get_header();
                     titleSlider.update();
                 </script>
             </header><!-- .page-header -->
-            <div class="mb-3 mt-6 max-w-content">
-                <h3 class="font-montserrat text-xl uppercase">Recents</h3>
-            </div>
-        <?php
-            // Start the Loop.
-            while (have_posts()) :
-                the_post();
-                get_template_part('template-parts/content/content', 'excerpt');
-            // End the loop.
-            endwhile;
+            <section class="mt-8">
+                <h3 class="font-montserrat max-w-content text-xl uppercase mb-3">Recents</h3>
+                <?php
 
-            // Previous/next page navigation.
-            contentment_the_posts_navigation();
+                // Retrieve the latest 3 posts
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 2,
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+
+                $query = new WP_Query($args);
+
+                // Check if there are posts
+                if ($query->have_posts()) {
+                    // Start the loop
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+                        // Display each post using the template part
+                        get_template_part('template-parts/content/content', 'excerpt');
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                } else {
+                    // If no posts found
+                    echo 'No posts found';
+                }
+                ?>
+
+                <div class="max-w-content">
+                    <button class="w-full button-outline">
+                        <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>">
+                            <p class="font-montserrat md:text-xl uppercase">Alle recents</p>
+                        </a>
+                    </button>
+                </div>
+            </section>
+            <div class="mb-3 mt-8 max-w-content">
+                <h3 class="font-montserrat text-xl uppercase">Self care & Health</h3>
+            </div>
+            <div class="max-w-content-p">
+                <?php
+                // Retrieve the latest 3 posts from the category "self-care-health"
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 2,
+                    'category_name' => 'self-care-health',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+
+                $query = new WP_Query($args);
+
+                // Check if there are posts
+                if ($query->have_posts()) {
+                    // Start the loop
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+                        // Display each post using the template part
+                        get_template_part('template-parts/content/content', 'excerpt');
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                } else {
+                    // If no posts found
+                    echo 'No posts found';
+                }
+                ?>
+
+                <div class="max-w-content">
+                    <button class="w-full button-outline">
+                        <a href="<?php echo esc_url(get_category_link(get_cat_ID('Self care & Health'))); ?>">
+                            <p class="font-montserrat md:text-xl uppercase">Alle Self care & Health</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="max-w-content-p">
+                <div class="mb-3 mt-8 max-w-content">
+                    <h3 class="font-montserrat text-xl uppercase">Life & work</h3>
+                </div>
+                <?php
+                // Retrieve the latest 3 posts from the category "self-care-health"
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 2,
+                    'category_name' => 'life-work',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+
+                $query = new WP_Query($args);
+
+                // Check if there are posts
+                if ($query->have_posts()) {
+                    // Start the loop
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+                        // Display each post using the template part
+                        get_template_part('template-parts/content/content', 'excerpt');
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                } else {
+                    // If no posts found
+                    echo 'No posts found';
+                }
+                ?>
+                <div class="max-w-content">
+                    <button class="w-full button-outline">
+                        <a href="<?php echo esc_url(get_category_link(get_cat_ID('Life & work'))); ?>">
+                            <p class="font-montserrat md:text-xl uppercase">Alle Life & work</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="mb-3 mt-6 max-w-content">
+                <h3 class="font-montserrat text-xl uppercase">Beauty & style</h3>
+            </div>
+            <div class="max-w-content-p">
+                <?php
+                // Retrieve the latest 3 posts from the category "self-care-health"
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 2,
+                    'category_name' => 'beauty-style',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+
+                $query = new WP_Query($args);
+
+                // Check if there are posts
+                if ($query->have_posts()) {
+                    // Start the loop
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+                        // Display each post using the template part
+                        get_template_part('template-parts/content/content', 'excerpt');
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                } else {
+                    // If no posts found
+                    echo 'No posts found';
+                }
+                ?>
+                <div class="max-w-content">
+                    <button class="w-full button-outline">
+                        <a href="<?php echo esc_url(get_category_link(get_cat_ID('Beauty & style'))); ?>">
+                            <p class="font-montserrat md:text-xl uppercase">Alle Beauty & style</p>
+                        </a>
+                    </button>
+                </div>
+
+            </div>
+            <div class="mb-3 mt-6 max-w-content">
+                <h3 class="font-montserrat text-xl uppercase">Travel & fun</h3>
+            </div>
+            <div class="max-w-content-p">
+                <?php
+                // Retrieve the latest 3 posts from the category "self-care-health"
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 2,
+                    'category_name' => 'travel-fun',
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+
+                $query = new WP_Query($args);
+
+                // Check if there are posts
+                if ($query->have_posts()) {
+                    // Start the loop
+                    while ($query->have_posts()) {
+                        $query->the_post();
+
+                        // Display each post using the template part
+                        get_template_part('template-parts/content/content', 'excerpt');
+                    }
+
+                    // Restore original post data
+                    wp_reset_postdata();
+                } else {
+                    // If no posts found
+                    echo 'No posts found';
+                }
+                ?>
+                <div class="max-w-content">
+                    <button class="w-full button-outline">
+                        <a href="<?php echo esc_url(get_category_link(get_cat_ID('Travel & fun'))); ?>">
+                            <p class="font-montserrat md:text-xl uppercase">Alle Travel & fun</p>
+                        </a>
+                    </button>
+                </div>
+
+            </div>
+
+
+        <?php
 
         else :
 

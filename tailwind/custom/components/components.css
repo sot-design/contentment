@@ -86,3 +86,12 @@
 [x-cloak] {
 	display: none;
 }
+
+/* ELEMENTS */
+button {
+	@apply bg-black text-white rounded-none font-montserrat uppercase p-2;
+}
+
+button.button-outline {
+	@apply border hover:border-slate-400 transition-colors ease-in-out duration-500 bg-background text-foreground rounded-none font-montserrat uppercase p-2;
+}
