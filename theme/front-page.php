@@ -146,7 +146,7 @@ get_header();
                 </script>
             </header><!-- .page-header -->
             <section class="mt-8">
-                <h3 class="font-montserrat max-w-content text-xl uppercase mb-3">Recents</h3>
+                <h2 class="mb-3 max-w-content font-montserrat text-xl uppercase">Recents</h2>
                 <?php
 
                 // Retrieve the latest 3 posts
@@ -178,15 +178,15 @@ get_header();
                 ?>
 
                 <div class="max-w-content">
-                    <button class="w-full button-outline">
+                    <button class="button-outline w-full">
                         <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>">
-                            <p class="font-montserrat md:text-xl uppercase">Alle recents</p>
+                            <p class="font-montserrat uppercase md:text-xl">Alle recents</p>
                         </a>
                     </button>
                 </div>
             </section>
             <div class="mb-3 mt-8 max-w-content">
-                <h3 class="font-montserrat text-xl uppercase">Self care & Health</h3>
+                <h2 class="font-montserrat text-xl uppercase">Self care & Health</h2>
             </div>
             <div class="max-w-content-p">
                 <?php
@@ -220,16 +220,16 @@ get_header();
                 ?>
 
                 <div class="max-w-content">
-                    <button class="w-full button-outline">
+                    <button class="button-outline w-full">
                         <a href="<?php echo esc_url(get_category_link(get_cat_ID('Self care & Health'))); ?>">
-                            <p class="font-montserrat md:text-xl uppercase">Alle Self care & Health</p>
+                            <p class="font-montserrat uppercase md:text-xl">Alle Self care & Health</p>
                         </a>
                     </button>
                 </div>
             </div>
             <div class="max-w-content-p">
                 <div class="mb-3 mt-8 max-w-content">
-                    <h3 class="font-montserrat text-xl uppercase">Life & work</h3>
+                    <h2 class="font-montserrat text-xl uppercase">Life & work</h2>
                 </div>
                 <?php
                 // Retrieve the latest 3 posts from the category "self-care-health"
@@ -261,9 +261,9 @@ get_header();
                 }
                 ?>
                 <div class="max-w-content">
-                    <button class="w-full button-outline">
+                    <button class="button-outline w-full">
                         <a href="<?php echo esc_url(get_category_link(get_cat_ID('Life & work'))); ?>">
-                            <p class="font-montserrat md:text-xl uppercase">Alle Life & work</p>
+                            <p class="font-montserrat uppercase md:text-xl">Alle Life & work</p>
                         </a>
                     </button>
                 </div>
@@ -302,16 +302,16 @@ get_header();
                 }
                 ?>
                 <div class="max-w-content">
-                    <button class="w-full button-outline">
+                    <button class="button-outline w-full">
                         <a href="<?php echo esc_url(get_category_link(get_cat_ID('Beauty & style'))); ?>">
-                            <p class="font-montserrat md:text-xl uppercase">Alle Beauty & style</p>
+                            <p class="font-montserrat uppercase md:text-xl">Alle Beauty & style</p>
                         </a>
                     </button>
                 </div>
 
             </div>
             <div class="mb-3 mt-6 max-w-content">
-                <h3 class="font-montserrat text-xl uppercase">Travel & fun</h3>
+                <h2 class="font-montserrat text-xl uppercase">Travel & fun</h2>
             </div>
             <div class="max-w-content-p">
                 <?php
@@ -344,9 +344,9 @@ get_header();
                 }
                 ?>
                 <div class="max-w-content">
-                    <button class="w-full button-outline">
+                    <button class="button-outline w-full">
                         <a href="<?php echo esc_url(get_category_link(get_cat_ID('Travel & fun'))); ?>">
-                            <p class="font-montserrat md:text-xl uppercase">Alle Travel & fun</p>
+                            <p class="font-montserrat uppercase md:text-xl">Alle Travel & fun</p>
                         </a>
                     </button>
                 </div>
