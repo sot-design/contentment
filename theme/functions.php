@@ -247,6 +247,11 @@ function remove_jquery_from_wordpress()
 }
 add_action('wp_enqueue_scripts', 'remove_jquery_from_wordpress');
 
+// Add custom image size
+if (function_exists('add_image_size')) {
+	add_image_size('medium_large', 450, 550); // 768px wide, unlimited height
+}
+
 
 // Close comments on the front-end
 function disable_comments_status()
