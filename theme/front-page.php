@@ -57,14 +57,13 @@ $posts_array = array();
                             $post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); // Get the post thumbnail ID for the current post
 
                             if ($post_thumbnail_id) {
+                                $thumbnailSmall = wp_get_attachment_image_src($post_thumbnail_id, 'medium');
                                 $thumbnail = wp_get_attachment_image_src($post_thumbnail_id, 'post_image');
-                                $thumbnail_url = $thumbnail[0];
                             }
-
 
                         ?>
                             <div class="swiper-slide post-slide flex size-32 items-center justify-center bg-slate-100 md:size-48 aspect-h-1 aspect-w-1 md:aspect-w-3">
-                                <img src="<?php echo $thumbnail_url ?>" alt="Image 1" class="full-size object-cover">
+                                <img src="<?php echo $thumbnailSmall[0] ?>" srcset="<?php echo $thumbnail[0] ?> 768w" alt="Image 1" class="full-size object-cover">
                             </div>
                         <?php
 
