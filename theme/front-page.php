@@ -11,8 +11,6 @@
 get_header();
 ?>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <style>
     .post-slide {
         transition: transform 0.3s;
@@ -138,45 +136,47 @@ $posts_array = array();
             </div>
 
             <script>
-                var swiper = new Swiper('.swiper-container', {
-                    slidesPerView: 1,
-                    initialSlide: 1,
-                    centeredSlides: true,
-                    slideToClickedSlide: true,
-                    resizeObserver: true,
-                    allowTouchMove: true,
-                    loop: false,
-                    spaceBetween: 80,
-                    navigation: {
-                        nextEl: ".button-next",
-                        prevEl: ".button-prev",
-                    },
-                    breakpoints: {
-                        // when window width is >= 768px
-                        768: {
-                            slidesPerView: 3,
+                document.addEventListener("DOMContentLoaded", function() {
+                    var swiper = new Swiper('.swiper-container', {
+                        slidesPerView: 1,
+                        initialSlide: 1,
+                        centeredSlides: true,
+                        slideToClickedSlide: true,
+                        resizeObserver: true,
+                        allowTouchMove: true,
+                        loop: false,
+                        spaceBetween: 80,
+                        navigation: {
+                            nextEl: ".button-next",
+                            prevEl: ".button-prev",
                         },
-                    },
-                });
+                        breakpoints: {
+                            // when window width is >= 768px
+                            768: {
+                                slidesPerView: 3,
+                            },
+                        },
+                    });
 
-                // Second Swiper
-                var titleSlider = new Swiper('.title-slider', {
-                    slidesPerView: 1,
-                    initialSlide: 1,
-                    centeredSlides: true,
-                    resizeObserver: true,
-                    allowTouchMove: true,
-                    loop: false,
-                    effect: 'fade',
-                    fadeEffect: {
-                        crossFade: true
-                    }
-                });
+                    // Second Swiper
+                    var titleSlider = new Swiper('.title-slider', {
+                        slidesPerView: 1,
+                        initialSlide: 1,
+                        centeredSlides: true,
+                        resizeObserver: true,
+                        allowTouchMove: true,
+                        loop: false,
+                        effect: 'fade',
+                        fadeEffect: {
+                            crossFade: true
+                        }
+                    });
 
-                swiper.controller.control = titleSlider;
-                titleSlider.controller.control = swiper;
-                swiper.update();
-                titleSlider.update();
+                    swiper.controller.control = titleSlider;
+                    titleSlider.controller.control = swiper;
+                    swiper.update();
+                    titleSlider.update();
+                });
             </script>
         </header><!-- .page-header -->
         <section class="mt-8">
