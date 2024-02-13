@@ -68,13 +68,8 @@ if ($post_thumbnail_id) {
 				}
 				?>
 			</div><!-- .entry-content -->
-			<div x-data class="hidden justify-end gap-3 md:flex">
-				<div @click="$dispatch('openmodal', { title: '<?php echo esc_html(get_the_title()) ?>', url: '<?php echo esc_url(get_permalink()) ?>', img: '<?php echo $thumbnail_url ?>', imgfull: '<?php echo $thumbnail_url_full ?>'})" class="border p-2 cursor-pointer">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-						<path d="m22 2-7 20-4-9-9-4Z" />
-						<path d="M22 2 11 13" />
-					</svg>
-				</div>
+			<div class="hidden justify-end gap-3 md:flex">
+				<?php get_template_part('template-parts/custom/custom', 'share-button'); ?>
 				<div class="border p-2 cursor-pointer">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />

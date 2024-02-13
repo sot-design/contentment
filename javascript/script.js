@@ -46,8 +46,7 @@ window.shareTo = function shareTo(platform, url, title, imageUrl) {
 			break;
 		case 'twitter':
 			var twitterShareUrl =
-				'https://twitter.com/intent/tweet?url=' +
-				encodeURIComponent(url) +
+				'https://twitter.com/intent/tweet?' +
 				'&text=' +
 				encodeURIComponent(customText);
 			if (imageUrl) {
