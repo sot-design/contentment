@@ -154,6 +154,10 @@ function contentment_scripts()
 	wp_enqueue_style('contentment-style', get_stylesheet_uri(), array(), CONTENTMENT_VERSION);
 	wp_enqueue_script('contentment-script', get_template_directory_uri() . '/js/script.min.js', array(), CONTENTMENT_VERSION, true);
 
+	// Localize the script with new data
+	$ajax_url = admin_url('admin-ajax.php');
+	wp_localize_script('contentment-script', 'ajax_object', array('ajax_url' => $ajax_url));
+
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
@@ -302,3 +306,35 @@ function disable_comments_admin_bar()
 	}
 }
 add_action('init', 'disable_comments_admin_bar');
+
+function load_more_posts_callback()
+{
+	$page = isset($_POST['page']) ? intval($_POST['page']) : 1;
+
+	// Query posts
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 5,
+		'paged' => $page,
+	);
+	$query = new WP_Query($args);
+
+	// Start output buffer
+	ob_start();
+
+	// Loop over posts
+	if ($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			get_template_part('template-parts/content/content', 'excerpt');
+		}
+	}
+
+	// Get HTML from buffer
+	$html = ob_get_clean();
+
+	// Return JSON response
+	wp_send_json_success($html);
+}
+add_action('wp_ajax_load_more_posts', 'load_more_posts_callback');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts_callback');

@@ -11,18 +11,14 @@
 
 import Swiper from 'swiper';
 import { Controller, Navigation, Autoplay } from 'swiper/modules';
+import Alpine from 'alpinejs';
 
 Swiper.use(Controller);
 Swiper.use(Navigation);
 Swiper.use(Autoplay);
 
 window.Swiper = Swiper;
-
-import Alpine from 'alpinejs';
-
 window.Alpine = Alpine;
-
-Alpine.start();
 
 window.shareTo = function shareTo(platform, url, title, img, imgfull) {
 	// Voeg aangepaste tekst toe aan de titel
@@ -83,3 +79,33 @@ window.copyLink = function copyLink(url) {
 	document.execCommand('copy');
 	input.remove();
 };
+
+window.loadMorePosts = function () {
+	const app = this;
+	app.loading = true;
+	fetch('/wp-admin/admin-ajax.php', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		body: new URLSearchParams({
+			action: 'load_more_posts',
+			page: app.page + 1,
+		}),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			const container = document.getElementById('post-container');
+			container.insertAdjacentHTML('beforeend', data.data);
+			app.page++;
+			app.loading = false;
+		})
+		.catch((error) => {
+			console.error('Error fetching posts:', error);
+			app.loading = false;
+		});
+};
+
+Alpine.data('loadMorePosts', window.loadMorePosts);
+
+Alpine.start();

@@ -59,7 +59,7 @@ get_header();
 			}
 			?>
 
-		<?php
+			<?php
 			// Start the Loop.
 			while (have_posts()) :
 				the_post();
@@ -67,9 +67,15 @@ get_header();
 
 			// End the loop.
 			endwhile;
+			?>
+			<div id="post-container">
+			</div>
+			<div x-data="{ page: 1, loading: false, posts: [] }" class="max-w-content">
+				<button transition x-show="!loading && page <= <?php echo $wp_query->max_num_pages; ?>" @click="loadMorePosts" class="w-full button-outline">Load More</button>
+				<p x-cloak transition x-show="loading" class="w-full font-montserrat uppercase text-center button-outline border animate-pulse p-2">Loading...</p>
+			</div>
 
-			// Previous/next page navigation.
-			contentment_the_posts_navigation();
+		<?php
 
 		else :
 
