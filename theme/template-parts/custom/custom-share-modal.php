@@ -12,7 +12,7 @@
     }
 </style>
 <!-- Add this code in your WordPress theme template -->
-<div x-data="{ isOpen: true, title: '', url: '', img: '' }" x-on:openmodal.window="isOpen = true, title = $event.detail['title'], url = $event.detail['url'], img = $event.detail['img']" cloak>
+<div x-data="{ isOpen: false, title: '', url: '', img: '' }" x-on:openmodal.window="isOpen = true, title = $event.detail['title'], url = $event.detail['url'], img = $event.detail['img']" cloak>
     <!-- Modal -->
     <div x-show="isOpen" transition class="fixed inset-0 overflow-y-auto z-50 ">
         <div class="flex items-center justify-center min-h-screen p-6">
@@ -34,7 +34,7 @@
                         <img class="w-full h-full object-center object-cover" x-bind:src="img" alt="">
                     </div>
                 </div>
-                <h2 class="uppercase text" x-text="title"></h2>
+                <h2 class="uppercase text-sm max-w-xs" x-text="title"></h2>
                 <ul>
                     <li class="mb-2">
                         <button @click="shareTo('facebook', url, title, img)" class="button-outline w-full">Facebook</button>
