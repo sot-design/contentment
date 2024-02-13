@@ -9,7 +9,7 @@ $post_thumbnail_id = get_post_thumbnail_id(get_the_ID()); // Get the post thumbn
 
 if ($post_thumbnail_id) {
     $thumbnail = wp_get_attachment_image_src($post_thumbnail_id, 'medium');
-    $thumbnail_full = wp_get_attachment_image_src($post_thumbnail_id, 'full');
+    $thumbnail_full = wp_get_attachment_image_src($post_thumbnail_id, 'large');
     $thumbnail_url = $thumbnail[0];
     $thumbnail_url_full = $thumbnail_full[0];
 }

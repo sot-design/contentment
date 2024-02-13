@@ -24,7 +24,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-window.shareTo = function shareTo(platform, url, title, imageUrl) {
+window.shareTo = function shareTo(platform, url, title, img, imgfull) {
 	// Voeg aangepaste tekst toe aan de titel
 	var customText = title + '\n\nLees het hier:\n' + url;
 
@@ -33,12 +33,12 @@ window.shareTo = function shareTo(platform, url, title, imageUrl) {
 			var facebookShareUrl =
 				'https://www.facebook.com/sharer/sharer.php?u=' +
 				encodeURIComponent(url);
-			if (imageUrl) {
+			if (imgfull) {
 				facebookShareUrl +=
 					'&quote=' +
 					encodeURIComponent(customText) +
 					'&picture=' +
-					encodeURIComponent(imageUrl);
+					encodeURIComponent(imgfull);
 			} else {
 				facebookShareUrl += '&quote=' + encodeURIComponent(customText);
 			}
@@ -49,8 +49,8 @@ window.shareTo = function shareTo(platform, url, title, imageUrl) {
 				'https://twitter.com/intent/tweet?' +
 				'&text=' +
 				encodeURIComponent(customText);
-			if (imageUrl) {
-				twitterShareUrl += '&media=' + encodeURIComponent(imageUrl);
+			if (imgfull) {
+				twitterShareUrl += '&media=' + encodeURIComponent(imgfull);
 			}
 			window.open(twitterShareUrl);
 			break;
@@ -59,7 +59,7 @@ window.shareTo = function shareTo(platform, url, title, imageUrl) {
 				'https://pinterest.com/pin/create/button/?url=' +
 				encodeURIComponent(url) +
 				'&media=' +
-				encodeURIComponent(imageUrl) +
+				encodeURIComponent(imgfull) +
 				'&description=' +
 				encodeURIComponent(customText);
 			window.open(pinterestShareUrl);
