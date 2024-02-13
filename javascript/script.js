@@ -20,15 +20,13 @@ window.Swiper = Swiper;
 
 import Alpine from 'alpinejs';
 
+window.Alpine = Alpine;
+
+Alpine.start();
+
 window.shareTo = function shareTo(platform, url, title, imageUrl) {
 	// Voeg aangepaste tekst toe aan de titel
 	var customText = title + '\n\nLees het hier:\n' + url;
-
-	// Log alle parameters
-	console.log('Platform:', platform);
-	console.log('URL:', url);
-	console.log('Title:', title);
-	console.log('Image URL:', imageUrl);
 
 	switch (platform.toLowerCase()) {
 		case 'facebook':
@@ -79,10 +77,10 @@ window.shareTo = function shareTo(platform, url, title, imageUrl) {
 };
 
 window.copyLink = function copyLink(url) {
-	// Logic to copy the link to the clipboard
-	console.log('Link copied to clipboard: ' + url);
+	const input = document.createElement('textarea');
+	input.value = url;
+	document.body.appendChild(input);
+	input.select();
+	document.execCommand('copy');
+	input.remove();
 };
-
-window.Alpine = Alpine;
-
-Alpine.start();
