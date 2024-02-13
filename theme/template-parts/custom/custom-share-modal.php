@@ -15,7 +15,7 @@
 <div x-data="{ isOpen: false, title: '', url: '', img: '', imgfull: ''}" x-on:openmodal.window="isOpen = true, title = $event.detail['title'], url = $event.detail['url'], img = $event.detail['img'], imgfull = $event.detail['imgfull']">
     <!-- Modal -->
     <div x-cloak x-transition x-show="isOpen" transition class="fixed inset-0 overflow-y-auto z-50 ">
-        <div class="flex items-center justify-center min-h-screen p-6">
+        <div class="flex items-center justify-center min-h-dvh p-6">
             <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                 <div class="absolute inset-0 bg-white opacity-60"></div>
             </div>
