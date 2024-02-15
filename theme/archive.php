@@ -78,7 +78,7 @@ if (is_category() && $current_category) {
 			<div id="post-container">
 			</div>
 			<div x-data='{ page: 1, loading: false, posts: [], query: <?php echo json_encode($wp_query->query_vars); ?>}' class="max-w-content">
-				<button transition x-show="!loading && page <= <?php echo $wp_query->max_num_pages; ?>" @click="loadMorePosts" class="button-outline w-full">Load More</button>
+				<button transition x-show="!loading && page <= <?php echo ($wp_query->max_num_pages) - 1; ?>" @click="loadMorePosts" class="button-outline w-full">Load More</button>
 				<p x-cloak transition x-show="loading" class="button-outline w-full animate-pulse border p-2 text-center font-montserrat uppercase">Loading...</p>
 			</div>
 

@@ -12,7 +12,7 @@
 <div class="mb-3">
 	<h3 class="font-montserrat uppercase">Wat je misschien ook leuk vindt</h3>
 </div>
-<div class="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2">
+<div class="grid grid-cols-1 place-content-stretch place-items-stretch gap-6 sm:grid-cols-2">
 	<?php
 	// Get the current post ID
 	$current_post_id = get_the_ID();
@@ -28,7 +28,7 @@
 	// Define arguments for the custom query to retrieve similar posts in the same category
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 2, // Get 2 similar posts
+		'posts_per_page' => 4, // Get 2 similar posts
 		'post__not_in' => array($current_post_id), // Exclude the current post
 		'orderby' => 'rand', // Order by random to get a variety of similar posts
 		'category__in' => $category_ids, // Retrieve posts in the same category
@@ -57,7 +57,7 @@
 					<div class="flex w-2/3 flex-col justify-between p-3">
 						<header class="entry-header text-left">
 							<?php
-							the_title(sprintf('<h2 class="sm:text-3xl md:text-lg font-bodonimoda font-semibold uppercase mb-0"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
+							the_title(sprintf('<h2 class="text-xl md:text-lg font-bodonimoda font-semibold uppercase mb-0"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
 							?>
 						</header><!-- .entry-header -->
 						<?php
@@ -69,7 +69,7 @@
 						<div class="flex justify-end gap-3">
 							<?php get_template_part('template-parts/custom/custom', 'share-button'); ?>
 							<div class="cursor-pointer border p-2">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="size-4 md:size-5">
 									<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
 								</svg>
 							</div>
