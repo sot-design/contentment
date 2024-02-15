@@ -307,34 +307,46 @@ function disable_comments_admin_bar()
 }
 add_action('init', 'disable_comments_admin_bar');
 
-function load_more_posts_callback()
+function load_more_posts()
 {
+	$query_vars = isset($_POST['query_vars']) ? json_decode(stripslashes($_POST['query_vars']), true) : array();
 	$page = isset($_POST['page']) ? intval($_POST['page']) : 1;
 
-	// Query posts
-	$args = array(
+	// Manipulate the query here if needed
+	$query_args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 5,
+		'post_status' => 'publish',
 		'paged' => $page,
+		// Add more query parameters based on the passed query_vars if needed
 	);
-	$query = new WP_Query($args);
 
-	// Start output buffer
-	ob_start();
+	// Merge query variables
+	$query_args = array_merge($query_vars, $query_args);
 
-	// Loop over posts
-	if ($query->have_posts()) {
-		while ($query->have_posts()) {
-			$query->the_post();
+	$posts_query = new WP_Query($query_args);
+
+	if ($posts_query->have_posts()) {
+		ob_start();
+		while ($posts_query->have_posts()) {
+			$posts_query->the_post();
 			get_template_part('template-parts/content/content', 'excerpt');
 		}
+		$html = ob_get_clean();
+
+		wp_reset_postdata();
+
+		wp_send_json_success(array(
+			'html' => $html,
+			// Additional data if needed
+			'log_message' => 'Data loaded successfully.',
+		));
+	} else {
+		wp_send_json_error(array(
+			'message' => 'No more posts found.',
+		));
 	}
-
-	// Get HTML from buffer
-	$html = ob_get_clean();
-
-	// Return JSON response
-	wp_send_json_success($html);
+	wp_die();
 }
-add_action('wp_ajax_load_more_posts', 'load_more_posts_callback');
-add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts_callback');
+
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');

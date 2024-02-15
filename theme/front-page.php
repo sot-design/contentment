@@ -60,7 +60,7 @@ $posts_array = array();
                             }
 
                         ?>
-                            <div class="swiper-slide post-slide flex size-32 items-center justify-center bg-slate-100 md:size-48 aspect-h-1 aspect-w-1 md:aspect-w-3">
+                            <div class="swiper-slide post-slide aspect-h-1 aspect-w-1 flex size-32 items-center justify-center bg-slate-100 md:aspect-w-3 md:size-48">
                                 <img src="<?php echo $thumbnailSmall[0] ?>" srcset="<?php echo $thumbnail[0] ?> 768w" alt="Image 1" class="full-size object-cover">
                             </div>
                         <?php
@@ -73,13 +73,13 @@ $posts_array = array();
                         ?>
                     </div>
                 </div>
-                <div class="button-prev absolute bottom-3 lg:bottom-8 left-6  sm:left-14 md:left-1/4 z-50 transform">
+                <div class="button-prev absolute bottom-3 left-6 z-50  transform sm:left-14 md:left-1/4 lg:bottom-8">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left">
                         <path d="M6 8L2 12L6 16" />
                         <path d="M2 12H22" />
                     </svg>
                 </div>
-                <div class="button-next absolute bottom-3 lg:bottom-8 right-6 sm:right-14 md:right-1/4 z-50 transform ">
+                <div class="button-next absolute bottom-3 right-6 z-50 transform sm:right-14 md:right-1/4 lg:bottom-8 ">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right">
                         <path d="M18 8L22 12L18 16" />
                         <path d="M2 12H22" />
@@ -106,9 +106,9 @@ $posts_array = array();
 
 
                             ?>
-                                    <div class="swiper-slide flex flex-col justify-center size-full p-6">
+                                    <div class="swiper-slide flex size-full flex-col justify-center p-6">
                                         <a href="<?php echo esc_url(get_the_permalink()) ?>">
-                                            <h1 class="mb-3 text-2xl font-semibold sm:text-3xl uppercase"><?php echo esc_html(get_the_title()); ?></h1>
+                                            <h1 class="mb-3 text-2xl font-semibold uppercase sm:text-3xl"><?php echo esc_html(get_the_title()); ?></h1>
                                         </a>
                                         <p class="font-montserrat uppercase">
                                             <?php

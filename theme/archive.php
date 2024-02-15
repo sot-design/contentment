@@ -10,7 +10,14 @@
 
 get_header();
 ?>
+<?php
+$current_category = get_queried_object();
+$category_slug;
 
+if (is_category() && $current_category) {
+	$category_slug = $current_category->slug;
+}
+?>
 <section id="primary">
 	<main id="main">
 
@@ -31,18 +38,18 @@ get_header();
 
 
 			?>
-				<header class="max-w-content mb-6">
-					<div class="flex border justify-center items-stretch mb-6 min-h-40">
-						<div class="w-2/3 p-4 md:p-8 flex flex-col justify-center items-center">
+				<header class="mb-6 max-w-content">
+					<div class="mb-6 flex min-h-40 items-stretch justify-center border">
+						<div class="flex w-2/3 flex-col items-center justify-center p-4 md:p-8">
 							<div>
-								<h2 class="font-montserrat text-xs uppercase md:text-sm mb-1">Categorie</h2>
+								<h2 class="mb-1 font-montserrat text-xs uppercase md:text-sm">Categorie</h2>
 								<?php the_archive_title('<h1 class="page-title m-0 p-0 text-start text-3xl md:text-4xl">', '</h1>'); ?>
 							</div>
 						</div>
 						<?Php
 						if ($category_image) { ?>
 
-							<div class="w-1/3 flex-grow aspect-h-3 aspect-w-7">
+							<div class="aspect-h-3 aspect-w-7 w-1/3 flex-grow">
 								<img class="size-full object-cover" src="<?php echo esc_url($medium_image[0]) ?>" alt="<?php echo esc_attr(get_the_title()) ?>">
 							</div>
 						<?php }
@@ -70,9 +77,9 @@ get_header();
 			?>
 			<div id="post-container">
 			</div>
-			<div x-data="{ page: 1, loading: false, posts: [] }" class="max-w-content">
-				<button transition x-show="!loading && page <= <?php echo $wp_query->max_num_pages; ?>" @click="loadMorePosts" class="w-full button-outline">Load More</button>
-				<p x-cloak transition x-show="loading" class="w-full font-montserrat uppercase text-center button-outline border animate-pulse p-2">Loading...</p>
+			<div x-data='{ page: 1, loading: false, posts: [], query: <?php echo json_encode($wp_query->query_vars); ?>}' class="max-w-content">
+				<button transition x-show="!loading && page <= <?php echo $wp_query->max_num_pages; ?>" @click="loadMorePosts" class="button-outline w-full">Load More</button>
+				<p x-cloak transition x-show="loading" class="button-outline w-full animate-pulse border p-2 text-center font-montserrat uppercase">Loading...</p>
 			</div>
 
 		<?php

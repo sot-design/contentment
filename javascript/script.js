@@ -83,6 +83,7 @@ window.copyLink = function copyLink(url) {
 window.loadMorePosts = function () {
 	const app = this;
 	app.loading = true;
+	console.log(JSON.stringify(app.query));
 	fetch('/wp-admin/admin-ajax.php', {
 		method: 'POST',
 		headers: {
@@ -91,12 +92,13 @@ window.loadMorePosts = function () {
 		body: new URLSearchParams({
 			action: 'load_more_posts',
 			page: app.page + 1,
+			query_vars: JSON.stringify(app.query), // Pass the JSON serialized query_vars object
 		}),
 	})
 		.then((response) => response.json())
 		.then((data) => {
 			const container = document.getElementById('post-container');
-			container.insertAdjacentHTML('beforeend', data.data);
+			container.insertAdjacentHTML('beforeend', data.data.html);
 			app.page++;
 			app.loading = false;
 		})
