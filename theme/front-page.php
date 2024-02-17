@@ -365,7 +365,6 @@ $posts_array = array();
                     </a>
                 </button>
             </div>
-
         </div>
     </main><!-- #main -->
 </section><!-- #primary -->

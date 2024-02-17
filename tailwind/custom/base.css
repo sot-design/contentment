@@ -29,3 +29,7 @@ h6 {
 p {
 	@apply font-cormorantgaramond;
 }
+
+.simplefavorite-button.active {
+	opacity: 100% !important;
+}

@@ -241,15 +241,15 @@ function disable_comments_post_types_support()
 }
 add_action('admin_init', 'disable_comments_post_types_support');
 
-// Remove jQuery from Wordpress
-function remove_jquery_from_wordpress()
-{
-	if (!is_admin()) {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', false);
-	}
-}
-add_action('wp_enqueue_scripts', 'remove_jquery_from_wordpress');
+// // Remove jQuery from Wordpress
+// function remove_jquery_from_wordpress()
+// {
+// 	if (!is_admin()) {
+// 		wp_deregister_script('jquery');
+// 		wp_register_script('jquery', false);
+// 	}
+// }
+// add_action('wp_enqueue_scripts', 'remove_jquery_from_wordpress');
 
 // Add custom image size
 if (function_exists('add_image_size')) {
