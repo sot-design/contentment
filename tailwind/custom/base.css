@@ -30,6 +30,6 @@ p {
 	@apply font-cormorantgaramond;
 }
 
-.simplefavorite-button.active {
-	opacity: 100% !important;
+.simplefavorite-button {
+	@apply cursor-pointer p-2;
 }
