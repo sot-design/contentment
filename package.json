@@ -60,6 +60,7 @@
 		"alpinejs": "^3.13.5",
 		"axios": "^1.6.7",
 		"browser-sync": "^3.0.2",
+		"jquery": "^3.7.1",
 		"swiper": "^11.0.6"
 	}
 }

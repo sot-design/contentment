@@ -68,7 +68,7 @@
 						?>
 						<div class="flex justify-end gap-3">
 							<?php get_template_part('template-parts/custom/custom', 'share-button'); ?>
-							<div class="cursor-pointer border p-2">
+							<div class="cursor-pointer border">
 								<?php the_favorites_button(get_the_ID()); ?>
 							</div>
 						</div>
