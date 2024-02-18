@@ -51,7 +51,7 @@
 			</a>
 		</div>
 		<div class="flex w-2/5 items-center justify-end gap-5">
-			<nav class="hidden md:block" id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'contentment'); ?>">
+			<!-- <nav class="hidden md:block" id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'contentment'); ?>">
 				<?php
 				wp_nav_menu(
 					array(
@@ -66,10 +66,12 @@
 					)
 				);
 				?>
-			</nav><!-- #site-navigation -->
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="size-4 flex-none md:size-5">
-				<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-			</svg>
+			</nav>#site-navigation -->
+			<a href="/favorieten">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="size-4 flex-none md:size-5">
+					<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+				</svg>
+			</a>
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1" stroke-linecap="square" stroke-linejoin="round" class="size-4 flex-none md:size-5">
 				<circle cx="11" cy="11" r="8" />
 				<path d="m21 21-4.3-4.3" />

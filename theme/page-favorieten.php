@@ -44,8 +44,6 @@ if (is_category() && $current_category) {
 			echo 'No favorites found.';
 		}
 
-
-
 		?>
 	</main><!-- #main -->
 </section><!-- #primary -->
