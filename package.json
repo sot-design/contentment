@@ -38,7 +38,7 @@
 		"watch:tailwind:editor:extra": "npm run development:tailwind:editor:extra -- --watch",
 		"watch:tailwind:themejson": "chokidar \"./theme/theme.json\" -c \"nodetouch ./tailwind/tailwind.config.js\"",
 		"watch:esbuild": "npm run development:esbuild -- --watch",
-		"watch:browser-sync": "browser-sync start --proxy \"localhost:8000" --files \"theme\" --no-notify --no-inject-changes",
+		"watch:browser-sync": "browser-sync start --proxy \"localhost:8000\" --files \"theme\" --no-notify --no-inject-changes",
 		"watch": "run-p \"watch:**\"",
 		"lint:eslint": "npx eslint theme/",
 		"lint:prettier": "npx prettier --check .",
